@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hours, location, and contact info for Business Name.">
+<title>Hours &amp; Contact — Business Name</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='12' fill='%232B5D63'/%3E%3Ctext x='50%25' y='54%25' font-family='Georgia,serif' font-size='34' fill='white' text-anchor='middle' dominant-baseline='middle'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<!-- LINK PREVIEW (Open Graph) — edit these per client! Text/WhatsApp/iMessage
+     previews read these tags. og:image must be a FULL https:// URL to a real
+     photo once the site is deployed (e.g. https://yoursite.netlify.app/hero.jpg) -->
+<meta property="og:title" content="Business Name — City">
+<meta property="og:description" content="One sentence describing the business and what it offers.">
+<meta property="og:type" content="website">
+<!-- <meta property="og:image" content="https://YOUR-SITE-URL/hero.jpg"> -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="wrap">
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="tour.html">Virtual Tour</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" class="is-active">Hours &amp; Contact</a>
+      <a href="reviews.html">Reviews &amp; FAQ</a>
+    </nav>
+
+    <div class="page-header">
+      <h1>Hours &amp; Contact</h1>
+      <p>Come by, call ahead, or send a message.</p>
+    </div>
+
+    <section class="fade-in">
+      <div class="info-grid">
+
+        <div class="info-card">
+          <h3>Hours</h3>
+          <div class="hours-row"><span>Mon</span><span>9am–6pm</span></div>
+          <div class="hours-row"><span>Tue</span><span>9am–6pm</span></div>
+          <div class="hours-row"><span>Wed</span><span>9am–6pm</span></div>
+          <div class="hours-row"><span>Thu</span><span>9am–6pm</span></div>
+          <div class="hours-row"><span>Fri</span><span>9am–6pm</span></div>
+          <div class="hours-row"><span>Sat</span><span>10am–4pm</span></div>
+          <div class="hours-row"><span>Sun</span><span>Closed</span></div>
+        </div>
+
+        <div class="info-card">
+          <h3>Location</h3>
+          <p style="font-size:14px;"><span data-biz="addressLine1">123 Main St</span><br><span data-biz="addressLine2">New York, NY 10021</span></p>
+          <p style="font-size:14px; margin-top:10px; color: var(--color-card-muted);">
+            Cross streets or subway note goes here.
+          </p>
+          <!-- Get Directions: replace the query text after "q=" with the real address -->
+          <a href="#" data-biz-link="maps"
+             target="_blank"
+             style="display:inline-block; margin-top:12px; font-size:13px; font-weight:600; color: var(--color-accent); text-decoration:none;">
+            Get Directions →
+          </a>
+        </div>
+
+      </div>
+
+      <!-- MAP — fills itself in from the address in config.js. Nothing to edit here. -->
+      <div class="map-wrap">
+        <iframe id="map-embed" title="Map to our location" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="fade-in" id="contact">
+      <h2>Contact</h2>
+      <p style="color: var(--color-muted); font-size: 14px;">
+        Call, text, or stop by — happy to answer any questions.
+      </p>
+      <div class="contact-buttons">
+        <a href="#" data-biz-link="tel">📞 <span data-biz="phoneDisplay">(212) 555-0199</span></a>
+        <a href="#" data-biz-link="email">✉️ Email</a>
+        <a href="#" data-biz-link="instagram" target="_blank">📷 Instagram</a>
+      </div>
+    </section>
+
+    <footer></footer>
+
+  </div>
+
+  <a class="sticky-call" href="#" data-biz-link="tel">📞 Call Now</a>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
