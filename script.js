@@ -119,4 +119,19 @@
     overlay.addEventListener("click", close);
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
   }
+  /* ---- 7. Hero video: fall back to plain hero if hero.mp4 missing ---- */
+
+  const heroVideo = document.querySelector(".hero-video");
+  if (heroVideo) {
+    const fallback = () => {
+      const hero = heroVideo.closest(".hero");
+      if (hero) hero.classList.remove("hero--video");
+      heroVideo.remove();
+    };
+    heroVideo.addEventListener("error", fallback, true);
+    // If no data has loaded shortly after page load, the file isn't there
+    setTimeout(() => {
+      if (heroVideo.readyState === 0) fallback();
+    }, 2500);
+  }
 })();
