@@ -119,19 +119,28 @@
     overlay.addEventListener("click", close);
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
   }
-  /* ---- 7. Hero video: fall back to plain hero if hero.mp4 missing ---- */
+  /* ---- 7. Hero video -------------------------------------------------
+     The hero starts as a normal plain hero. Only once hero.mp4 has
+     actually loaded a frame do we switch on video mode. That way a
+     missing or broken video file can never leave a black box on the
+     homepage — it just stays the plain hero. */
 
   const heroVideo = document.querySelector(".hero-video");
   if (heroVideo) {
-    const fallback = () => {
-      const hero = heroVideo.closest(".hero");
-      if (hero) hero.classList.remove("hero--video");
-      heroVideo.remove();
+    const hero = heroVideo.closest(".hero");
+
+    const enableVideo = () => {
+      hero.classList.add("hero--video");
+      heroVideo.play().catch(() => {}); // some browsers need a nudge
     };
-    heroVideo.addEventListener("error", fallback, true);
-    // If no data has loaded shortly after page load, the file isn't there
-    setTimeout(() => {
-      if (heroVideo.readyState === 0) fallback();
-    }, 2500);
+
+    if (heroVideo.readyState >= 2) {
+      enableVideo();                                  // already loaded
+    } else {
+      heroVideo.addEventListener("loadeddata", enableVideo, { once: true });
+    }
+
+    // If it errors out (file missing, bad format), remove it entirely
+    heroVideo.addEventListener("error", () => heroVideo.remove(), { once: true });
   }
 })();

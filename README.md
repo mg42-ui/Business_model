@@ -53,13 +53,8 @@ The homepage plays a short clip of the shop behind the headline.
 - No video? Delete nothing — if hero.mp4 is missing the site automatically
   shows the plain hero instead.
 
-## 4b. 360 Tour (optional upsell — needs the 360 camera)
-
-- tour.html + tour.jpg power the Virtual Tour page. With no camera yet,
-  either leave the demo tour.jpg in place or remove the "Virtual Tour"
-  link from the nav on every page.
-- When you have a real 360 photo: compress under 1.5MB, save as
-  **tour.jpg**, replacing the demo. tour.html picks it up automatically.
+- A demo `hero.mp4` ships with this template so you can see the effect
+  working. **Replace it** with real footage for every client.
 
 ## 5. Deploy
 

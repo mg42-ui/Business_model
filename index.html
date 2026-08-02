@@ -27,25 +27,21 @@
     <nav class="nav">
       <a href="index.html" class="is-active">Home</a>
       <a href="services.html">Services</a>
-      <a href="tour.html">Virtual Tour</a>
       <a href="gallery.html">Gallery</a>
       <a href="contact.html">Hours &amp; Contact</a>
       <a href="reviews.html">Reviews &amp; FAQ</a>
     </nav>
 
-    <!-- HERO — three modes:
-         1. VIDEO (current): put a video file named hero.mp4 in this folder.
-            If the file is missing, the video layer hides itself and you get
-            the plain color hero — nothing breaks.
-         2. PHOTO: remove the <video> below, set --hero-image in style.css,
-            and change the class to "hero hero--photo"
-         3. PLAIN: remove the <video> below. Done. -->
-    <div class="hero hero--video">
-      <video class="hero-video" autoplay muted loop playsinline
-             onerror="this.closest('.hero').classList.remove('hero--video'); this.remove();">
-        <source src="hero.mp4" type="video/mp4"
-                onerror="this.closest('.hero').classList.remove('hero--video'); this.parentElement.remove();">
-      </video>
+    <!-- HERO — a video of the shop plays behind the name.
+         Put a file named hero.mp4 in this same folder (see README for how
+         to shoot and compress it). If hero.mp4 is missing or won't play,
+         the page automatically shows the plain hero instead — nothing
+         breaks, so this is safe to leave in place either way.
+         Want a still photo instead? Delete the <video> tag below, set
+         --hero-image in style.css, and use class="hero hero--photo". -->
+    <div class="hero" id="hero">
+      <video class="hero-video" src="hero.mp4"
+             autoplay muted loop playsinline preload="auto"></video>
       <div class="hero-inner">
         <div class="hero-eyebrow" data-biz="city">New York City</div>
         <h1 data-biz="name">Business Name</h1>

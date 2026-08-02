@@ -422,8 +422,14 @@ select:focus-visible, textarea:focus-visible {
 }
 
 /* Video hero — a phone-shot clip of the shop playing behind the headline.
-   Requires a file named hero.mp4 next to index.html. If the file is
-   missing the video hides itself and the plain hero shows instead. */
+   Requires a file named hero.mp4 next to index.html.
+
+   How it works: the video is HIDDEN by default. script.js only adds the
+   .hero--video class once the file has actually loaded a frame. So if
+   hero.mp4 is missing or won't play, you simply get the plain hero —
+   never a black box. */
+.hero-video { display: none; }
+
 .hero--video {
   position: relative;
   overflow: hidden;
@@ -432,6 +438,7 @@ select:focus-visible, textarea:focus-visible {
   color: #fff;
 }
 .hero--video .hero-video {
+  display: block;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -453,8 +460,6 @@ select:focus-visible, textarea:focus-visible {
 .hero--video h1::before, .hero--video h1::after { border-color: rgba(255,255,255,0.8); }
 .hero--video p { color: rgba(255,255,255,0.85); }
 .hero--video .cta-secondary { color: rgba(255,255,255,0.75); }
-/* When the video file is missing, hero--video is removed by JS and the
-   plain hero styles take over — .hero-inner needs no special handling */
 @media (max-width: 600px) {
   .hero--video { padding: 70px 16px; border-radius: 0 0 12px 12px; }
 }
